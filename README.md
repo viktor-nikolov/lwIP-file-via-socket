@@ -17,7 +17,7 @@ and use the following code in the application
     FileViaSocket f( "192.168.44.44", 63333 ); // Connect to the server
     f << "Data:\n";                            // Write the header row
     std::array<int, 5> SampleData = {1, 2, 3, 4, 5};
-    for(int element : SampleData)
+    for(auto element : SampleData)
         f << element << '\n';                  // Write a data row
 } // Destructor is called, connection is closed
 ```
