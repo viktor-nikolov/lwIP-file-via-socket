@@ -16,10 +16,10 @@ and use the following code in the application
 {
     FileViaSocket f( "192.168.44.44", 63333 ); // Connect to the server
     f << "Data:\n";                            // Write the header row
-    std::array<int, 5> SampleData = {1, 2, 3, 4, 5};
+    std::array<int, 3> SampleData = {1, 2, 3};
     for(auto element : SampleData)
         f << element << '\n';                  // Write a data row
-} // Destructor is called, connection is closed
+} // Destructor on 'f' is called, connection is closed
 ```
 
 then the file `~/test_data/via_socket_240318_213421.5840.txt` is created on the server with the content
@@ -29,8 +29,6 @@ Data:
 1
 2
 3
-4
-5
 ```
 
 (The file name contains the time stamp for the connection.)
