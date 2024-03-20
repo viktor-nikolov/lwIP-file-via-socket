@@ -66,7 +66,8 @@ Tested on Ubuntu 22.04 and Windows 11.
 tbd
 
 ```
-usage: file_via_socket [-h] [--path PATH] [--prefix PREFIX] [--ext EXT] [--bind_ip BIND_IP] [--bind_port BIND_PORT]
+usage: file_via_socket [-h] [--path PATH] [--prefix PREFIX] [--ext EXT] [--bind_ip BIND_IP]
+                       [--bind_port BIND_PORT]
 
 options:
   -h, --help             show help message and exit
