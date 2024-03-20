@@ -35,3 +35,19 @@ Data:
 
 ## How to use
 
+Tested (and ready for compilation) on FreeRTOS on AMD Xilinx Zynq SoC (Vitis 2023.1 toolchain),
+Windows 11 (MinGW toolchain) and Ubuntu 22.04 (gcc toolchain).
+
+```
+g++ -o DemoFileViaSocket DemoFileViaSocket.cpp FileViaSocket.cpp
+```
+
+tbd
+
+```
+$ ./DemoFileViaSocket 192.168.44.44
+"Hello world" sent
+"12345678" sent
+Buffer sent. All done.
+```
+
