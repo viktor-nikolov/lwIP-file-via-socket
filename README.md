@@ -76,6 +76,5 @@ options:
   --ext EXT              extension for the file name; defaults to "txt"
   --bind_ip BIND_IP      local IP to bind the socket listener to; defaults to 0.0.0.0
   --bind_port BIND_PORT  local port to listen to connection on; values: 1024..65535; defaults to 65432
-
 ```
 
