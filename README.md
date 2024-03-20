@@ -35,6 +35,8 @@ Data:
 
 ## How to use
 
+### Client-side
+
 Tested (and ready for compilation) on FreeRTOS on AMD Xilinx Zynq SoC (Vitis 2023.1 toolchain),
 Windows 11 (MinGW toolchain) and Ubuntu 22.04 (gcc toolchain).
 
@@ -49,5 +51,30 @@ $ ./DemoFileViaSocket 192.168.44.44
 "Hello world" sent
 "12345678" sent
 Buffer sent. All done.
+```
+
+tbd
+
+### Server-side
+
+tbd
+
+Run the script with the command 'python3 file_via_socket [params]' or 'python file_via_socket [params]'.
+
+Tested on Ubuntu 22.04 and Windows 11.
+
+tbd
+
+```
+usage: file_via_socket [-h] [--path PATH] [--prefix PREFIX] [--ext EXT] [--bind_ip BIND_IP] [--bind_port BIND_PORT]
+
+options:
+  -h, --help             show help message and exit
+  --path PATH            path for storing the files; defaults to current working directory
+  --prefix PREFIX        prefix of the file name; defaults to "via_socket"
+  --ext EXT              extension for the file name; defaults to "txt"
+  --bind_ip BIND_IP      local IP to bind the socket listener to; defaults to 0.0.0.0
+  --bind_port BIND_PORT  local port to listen to connection on; values: 1024..65535; defaults to 65432
+
 ```
 
