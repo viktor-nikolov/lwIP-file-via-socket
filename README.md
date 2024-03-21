@@ -82,6 +82,6 @@ options:
 
 enable lwIP in the BSP
 
-[<img src="https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png?raw=true" title="" alt="" width="400">](https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png)
+[<img src="https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png?raw=true" title="" alt="" width="500">](https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png)
 
 tbd
