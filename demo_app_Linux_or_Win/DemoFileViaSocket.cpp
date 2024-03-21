@@ -35,7 +35,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #   include <winsock2.h>
 #endif
 
-const unsigned short SERVER_PORT{ 65432 };
+const unsigned short SERVER_PORT{ 65432 }; // The server script file_via_socket.py uses port 65432 by default.
 
 int main( int argc, char* argv[] )
 {
@@ -99,6 +99,7 @@ int main( int argc, char* argv[] )
         return 1;
     }	
 
+	// Prepare a buffer to be written to the server
 	const unsigned BUFF_SIZE{ 26*1000 };   /* Size of the buffer sent by one call of write() */
 	const unsigned BUFFER_COUNT{ 1000 };   /* Number of times we sent the buffer.
 	                                          Set this to a high number to perform bulk transfer test. */
