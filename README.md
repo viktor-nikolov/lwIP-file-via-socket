@@ -56,7 +56,7 @@ Buffer sent. All done.
 tbd
 
 ```c++
-const std::string    SERVER_ADDR( "192.168.44.44" );
+const std::string    SERVER_ADDR( "192.168.44.44" ); //Specify proper address here
 const unsigned short SERVER_PORT{ 65432 }; //The server script file_via_socket.py uses
                                            //port 65432 by default.
 
@@ -68,7 +68,7 @@ void demo_FileViaSocket_thread(void *p)
         f << "It worked.\n";
     } // Destructor on 'f' is called, the connection is closed, a file is created on the server
     catch( const std::exception& e ) {
-		// Handle exception
+        // Handle exception
     }
 
     /* We must give the server some time to close the connection on its end.
@@ -80,7 +80,7 @@ void demo_FileViaSocket_thread(void *p)
     try {
         f.open( SERVER_ADDR, SERVER_PORT ); // Open connection to the server
     } catch( const std::exception& e ) {
-		// Handle exception
+        // Handle exception
     }
 
     f << '1' << "2345678";
@@ -91,7 +91,7 @@ void demo_FileViaSocket_thread(void *p)
     try {
         f.open( SERVER_ADDR, SERVER_PORT ); // Open a new connection on the same object
     } catch( const std::exception& e ) {
-		// Handle exception
+        // Handle exception
     }
 
     const unsigned BUFF_SIZE{ 26*1000 };
