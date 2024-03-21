@@ -94,8 +94,10 @@ void demo_FileViaSocket_thread(void *p)
         // Handle exception
     }
 
-    const unsigned BUFF_SIZE{ 26*1000 };
+    const unsigned BUFF_SIZE{ 26*1000 }; // Beware of the size of thread's stack
     char buffer[BUFF_SIZE];
+    for( unsigned i = 0; i < BUFF_SIZE; i++ )
+        buffer[i] = 'A' + i % 26; // Fill with repeated sequence from 'A' to 'Z'
     
     f.write( buffer, BUFF_SIZE ); // Write the whole buffer to the server
     f.close(); // The connection is closed, third file is created on the server
