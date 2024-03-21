@@ -55,6 +55,89 @@ Buffer sent. All done.
 
 tbd
 
+```c++
+void demo_FileViaSocket_thread(void *p)
+{
+	bool WasOK{ false };
+	do { // We repeat attempts till the first connection is successfully made
+		xil_printf( "opening socket to address %s:%d\r\n", SERVER_ADDR.c_str(), SERVER_PORT );
+
+		try {
+			FileViaSocket f( SERVER_ADDR, SERVER_PORT ); // Declare the object and open the connection
+			f << "Hello world!\n";
+			f << "It worked.\n";
+
+			WasOK = true;
+		} // Destructor on 'f' is called, the connection is closed, a file is created on the server
+		catch( const FileViaSocket::WrongServerIPFormatExc& e ) {
+			std::string err( "Error on opening the socket: " + std::string(e.what()) + "\r\n" );
+			xil_printf( err.c_str() );
+			xil_printf( "TERMINATED\r\n" );
+			vTaskDelete(NULL); // We end this task
+	    }
+		catch( const std::exception& e ) {
+			std::string err( "Error on opening the socket: " + std::string(e.what()) + "\r\n" );
+			xil_printf( err.c_str() );
+			vTaskDelay( pdMS_TO_TICKS( 3000 ) ); // Wait 3 sec
+	    }
+	} while( ! WasOK );
+
+	xil_printf( "\"Hello world\" sent\r\n" );
+
+	/* We must give the server some time to close the connection on its end.
+	   Otherwise, the next call of 'open' would fail because of refused connection. */
+	vTaskDelay( pdMS_TO_TICKS( 50 ) ); // Wait 50 ms
+
+	FileViaSocket f; // We just declare the object, no connection is made
+
+	try {
+		f.open( SERVER_ADDR, SERVER_PORT ); // Open connection to the server
+	} catch( const std::exception& e ) {
+		std::string err( "Error on opening the socket: " + std::string(e.what()) + "\r\n" );
+		xil_printf( err.c_str() );
+		xil_printf( "TERMINATED\r\n" );
+		vTaskDelete(NULL); // We end this task
+    }
+
+	f << '1' << "2345678";
+	f.close(); // Close the connection, another file is created on the server
+
+	xil_printf( "\"12345678\" sent\r\n" );
+
+
+	vTaskDelay( pdMS_TO_TICKS( 50 ) ); // Wait 50 ms
+
+	try {
+		f.open( SERVER_ADDR, SERVER_PORT ); // Open a new connection on the same object
+	} catch( const std::exception& e ) {
+		std::string err( "Error on opening the socket: " + std::string(e.what()) + "\r\n" );
+		xil_printf( err.c_str() );
+		xil_printf( "TERMINATED\r\n" );
+		vTaskDelete(NULL); // We end this task
+    }
+
+	const unsigned BUFF_SIZE{ 26*1000 }; /* Size of a buffer sent by one call of write().
+	                                        WARNING: Be sure you have big enough stack in this thread.
+	                                                 Set value of SEND_DATA_THREAD_STACKSIZE accordingly. */
+	const unsigned BUFFER_COUNT{ 1000 }; /* Number of times we sent the buffer.
+	                                        Set this to a high number to perform bulk transfer test. */
+	char buffer[BUFF_SIZE];
+	for( unsigned i = 0; i < BUFF_SIZE; i++ )
+		buffer[i] = 'A' + i % 26; // Fill with repeated sequence from 'A' to 'Z'
+
+	/* Test of bulk data transfer.
+	 * On Zybo Z7 I achieved the transfer speed of about 340 Mbps */
+	for( unsigned i = 0; i < BUFFER_COUNT; i++ )
+		f.write( buffer, BUFF_SIZE ); // Write the whole buffer to the server
+	f.close(); // The connection is closed, third file is created on the server
+
+	xil_printf( "Buffer sent. All done.\r\n");
+	vTaskDelete(NULL); // All done, we end this task
+} //demo_FileViaSocket_thread
+```
+
+dfdf
+
 ### Server-side
 
 tbd
