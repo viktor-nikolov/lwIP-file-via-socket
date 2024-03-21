@@ -78,3 +78,10 @@ options:
   --bind_port BIND_PORT  local port to listen to connection on; values: 1024..65535; defaults to 65432
 ```
 
+## Sample project files
+
+enable lwIP in the BSP
+
+[<img src="https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png?raw=true" title="" alt="" width="230">](https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png)
+
+tbd
