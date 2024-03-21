@@ -93,7 +93,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #   undef close  // Macro "close" defined in lwip/sockets.h messes with our methods named "close"
 #endif
 
-void SocketBuffer::open( const std::string &serverIP, const unsigned short port )
+void SocketBuffer::open( const std::string &serverIP, unsigned short port )
 {
 	if( Socket >= 0 ) { // We still have an open socket from before
 		close();
