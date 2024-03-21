@@ -94,7 +94,8 @@ void demo_FileViaSocket_thread(void *p)
         // Handle exception
     }
 
-    const unsigned BUFF_SIZE{ 26*1000 }; // Beware of the size of thread's stack
+    // Prepare a buffer to be written to the server
+    const unsigned BUFF_SIZE{ 26*1000 }; // Beware of the size of thread's stack!
     char buffer[BUFF_SIZE];
     for( unsigned i = 0; i < BUFF_SIZE; i++ )
         buffer[i] = 'A' + i % 26; // Fill with repeated sequence from 'A' to 'Z'
