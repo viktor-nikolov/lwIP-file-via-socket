@@ -64,8 +64,8 @@ void demo_FileViaSocket_thread(void *p)
 {
     try {
         FileViaSocket f( SERVER_ADDR, SERVER_PORT ); // Declare the object and open the connection
-        f << "Hello world!\n";
-        f << "It worked.\n";
+        f << "Hello world!\n"; // We are using '\n' instead of std::endl in order to control what is written
+        f << "It worked.\n";   // to the file on the remote server.
     } // Destructor on 'f' is called, the connection is closed, a file is created on the server
     catch( const std::exception& e ) {
         // Handle exception
