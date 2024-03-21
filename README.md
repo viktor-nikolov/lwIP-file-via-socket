@@ -44,7 +44,7 @@ Windows 11 (MinGW toolchain) and Ubuntu 22.04 (gcc toolchain).
 g++ -o DemoFileViaSocket DemoFileViaSocket.cpp FileViaSocket.cpp
 ```
 
-tbd
+tbd tbd
 
 ```
 $ ./DemoFileViaSocket 192.168.44.44
