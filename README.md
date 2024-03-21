@@ -56,6 +56,9 @@ Buffer sent. All done.
 tbd
 
 ```c++
+const std::string    SERVER_ADDR( "192.168.44.44" );
+const unsigned short SERVER_PORT{ 65432 }; //The server script file_via_socket.py uses port 65432 by default.
+
 void demo_FileViaSocket_thread(void *p)
 {
     try {
