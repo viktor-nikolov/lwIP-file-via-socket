@@ -91,3 +91,7 @@ api_mode "SOCKET API" because it is stand alone app
 dhcp_options/lwip_dhcp true
 
 temac_adapter_options/phy_link_speed "1000 Mbps"
+
+[<img src="https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/lwIP_setting.png?raw=true" title="" alt="" width="500">](https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/lwIP_setting.png)
+
+tbd
