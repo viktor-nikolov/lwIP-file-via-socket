@@ -92,6 +92,6 @@ dhcp_options/lwip_dhcp true
 
 temac_adapter_options/phy_link_speed "1000 Mbps"
 
-[<img src="https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/lwIP_settings.png?raw=true" title="" alt="" width="500">](https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/lwIP_settings.png)
+[<img src="https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/lwIP_settings.png?raw=true" title="" alt="" width="650">](https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/lwIP_settings.png)
 
 tbd
