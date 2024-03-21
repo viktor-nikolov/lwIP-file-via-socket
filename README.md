@@ -103,7 +103,7 @@ void demo_FileViaSocket_thread(void *p)
     f.write( buffer, BUFF_SIZE ); // Write the whole buffer to the server
     f.close(); // The connection is closed, third file is created on the server
 
-    vTaskDelete(NULL); // All done, we end this task
+    vTaskDelete(NULL); // All done, we end this thread
 }
 ```
 
