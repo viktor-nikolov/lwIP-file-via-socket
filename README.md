@@ -85,3 +85,9 @@ enable lwIP in the BSP
 [<img src="https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png?raw=true" title="" alt="" width="500">](https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png)
 
 tbd
+
+api_mode "SOCKET API" because it is stand alone app
+
+dhcp_options/lwip_dhcp true
+
+temac_adapter_options/phy_link_speed "1000 Mbps"
