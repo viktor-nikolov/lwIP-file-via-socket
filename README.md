@@ -87,7 +87,7 @@ void demo_FileViaSocket_thread(void *p)
         // Handle exception
     }
 
-    f << '1' << "2345678";
+    f << '1' << "23456" << 78; // We can write all kind of value types to an ostream
     f.close(); // Close the connection, another file is created on the server
 
     vTaskDelay( pdMS_TO_TICKS( 50 ) ); // Wait 50 ms
