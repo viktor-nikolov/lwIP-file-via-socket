@@ -136,7 +136,7 @@ options:
 
 enable lwIP in the BSP
 
-[<img src="https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png?raw=true" title="" alt="" width="500">](https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/enable_lwIP.png)
+<img title="" src="pictures/enable_lwIP.png" alt="" width="500">
 
 tbd
 
@@ -146,6 +146,6 @@ dhcp_options/lwip_dhcp true
 
 temac_adapter_options/phy_link_speed "1000 Mbps"
 
-[<img src="https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/lwIP_settings.png?raw=true" title="" alt="" width="650">](https://github.com/viktor-nikolov/lwIP-file-via-socket/blob/main/pictures/lwIP_settings.png)
+<img title="" src="pictures/lwIP_settings.png" alt="" width="650">
 
 tbd
