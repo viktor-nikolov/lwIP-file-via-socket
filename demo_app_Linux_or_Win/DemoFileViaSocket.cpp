@@ -65,8 +65,11 @@ int main( int argc, char* argv[] )
 	try {
 		FileViaSocket f( ServerAddress, SERVER_PORT ); // Declare the object and open the connection
 		f << "Hello world!\n"; // We are using '\n' instead of std::endl in order to control what is written
-		f << "It worked.\n";   // to the file on the remote server.
-	} // Destructor on 'f' is called, the connection is closed, a file is created on the server
+		                       // to the file on the remote server.
+		f << std::flush;       // Flushing the buffer, "Hello world!\n" is sent in a TCP packet.
+		f << "It worked.\n";
+	} // Object f ceases to exist, destructor on 'f' is called, buffer is flushed,
+	  // "It worked.\n" is sent in a TCP packet, the socket connection is closed, a file is created on the server
 	catch( const std::exception& e ) {
         std::cerr << "Error on opening the socket: " << std::endl << e.what() << std::endl;
         return 1;
@@ -86,7 +89,7 @@ int main( int argc, char* argv[] )
         return 1;
     }	
 
-	f << '1' << "2345678";
+	f << '1' << "23456" << 78; // We can write all kinds of data types to an ostream
 	f.close(); // Close the connection, another file is created on the server
 	std::cout << "\"12345678\" sent" << std::endl;
 
