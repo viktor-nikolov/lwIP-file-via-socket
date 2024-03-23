@@ -69,7 +69,8 @@ void demo_FileViaSocket_thread(void *p)
         f << std::flush;       // Flushing the buffer, "Hello world!\n" is sent in a TCP packet.
         f << "It worked.\n";
     } // Object f ceases to exist, destructor on 'f' is called, buffer is flushed,
-      // "It worked.\n" is sent in a TCP packet, the socket connection is closed, a file is created on the server
+      // "It worked.\n" is sent in a TCP packet, the socket connection is closed,
+      // a file is created on the server
      catch( const std::exception& e ) {
         // Handle exception
     }
