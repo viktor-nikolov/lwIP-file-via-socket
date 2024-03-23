@@ -44,8 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /* IP address and port of the server running the script file_via_socket.py.
  * The address must be provided in numberical form in a string, e.g., "192.168.44.10".*/
-//const std::string    SERVER_ADDR( "###SERVER_ADDR is not set###" );
-const std::string    SERVER_ADDR( "192.168.44.10" );
+const std::string    SERVER_ADDR( "###SERVER_ADDR is not set###" );
+//const std::string    SERVER_ADDR( "192.168.44.10" );
 const unsigned short SERVER_PORT{ 65432 }; //The server script file_via_socket.py uses port 65432 by default.
 
 //Fallback IP address used when DHCP is not successful
