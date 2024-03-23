@@ -44,9 +44,13 @@ I tested the class FileViaSocket (and made sure it's ready for compilation) on F
 
 FileViaSocket acts as a regular C++ ostream class but doesn't write any data locally. Everything is sent to the server via a socket connection, and the server (a Python script) writes all incoming data verbatim to a file.
 
-You can open the connection by using a parameterized constructor `FileViaSocket( const std::string &serverIP, unsigned short port )` or by using a method `void open( const std::string &serverIP, unsigned short port )`.
+You can open the connection using the parameterized constructor `FileViaSocket( const std::string &serverIP, unsigned short port )` or by the method `void open( const std::string &serverIP, unsigned short port )`. Both may raise an exception if an error occurs.
+
+Connection is closed by the destructor of the class FileViaSocket or by calling the method `void close()`. After calling `close`, you can call the `open` again.
 
 
+
+dddd
 
 ```c++
 const std::string    SERVER_ADDR( "192.168.44.44" ); //Specify proper server address here
