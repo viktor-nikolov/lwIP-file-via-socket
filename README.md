@@ -64,8 +64,8 @@ void demo_FileViaSocket_thread(void *p)
 {
     try {
         FileViaSocket f( ServerAddress, SERVER_PORT ); // Declare the object and open the connection
-        f << "Hello world!\n"; // We are using '\n' instead of std::endl in order to control what is written
-                               // to the file on the remote server.
+        f << "Hello world!\n"; // We are using '\n' instead of std::endl in order to control
+                               // what is written to the file on the remote server.
         f << std::flush;       // Flushing the buffer, "Hello world!\n" is sent in a TCP packet.
         f << "It worked.\n";
     } // Object f ceases to exist, destructor on 'f' is called, buffer is flushed,
