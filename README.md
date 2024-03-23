@@ -71,7 +71,7 @@ void demo_FileViaSocket_thread(void *p)
     } // Object f ceases to exist, destructor on 'f' is called, buffer is flushed,
       // "It worked.\n" is sent in a TCP packet, the socket connection is closed,
       // a file is created on the server
-     catch( const std::exception& e ) {
+    catch( const std::exception& e ) {
         // Handle exception
     }
 
