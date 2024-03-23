@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="devices_info_Local" value="{&quot;cables&quot;:[{&quot;name&quot;:&quot;Digilent Zybo Z7 210351B7BB6BA&quot;,&quot;indexContextMap&quot;:{&quot;2&quot;:&quot;jsn-Zybo Z7-210351B7BB6BA-4ba00477-0&quot;,&quot;3&quot;:&quot;jsn-Zybo Z7-210351B7BB6BA-23727093-0&quot;}}]}"/>
+	<item key="DemoFileViaSocket_system-bitFile" value="${project_loc:DemoFileViaSocket}/_ide/bitstream/system_wrapper.bit"/>
+	<item key="DemoFileViaSocket_system-bmmFile" value=""/>
+	<item key="DemoFileViaSocket_system-target" value="Local"/>
+	<item key="DemoFileViaSocket_system-device" value="Auto Detect"/>
+	<item key="DemoFileViaSocket_system-partial_bit" value="false"/>
+	<item key="DemoFileViaSocket_system-skip_rev_check" value="false"/>
+	<item key="programfpga.sdxproject" value="DemoFileViaSocket_system"/>
+</section>

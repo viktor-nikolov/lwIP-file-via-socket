@@ -1,0 +1,8 @@
+20:28:01 **** Clean-only build of configuration Debug for project DemoFileViaSocket_system ****
+make clean 
+rm -rf ./_sds
+rm -rf package
+rm -f system.bif
+
+20:28:01 Build Finished (took 85ms)
+
