@@ -1,4 +1,5 @@
 [![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
+
 # "File via socket" for lwIP
 This repository provides a C++ ostream class (client) and a Python script (server) for writing a file on a remote system via an IP socket connection.  
 My primary motivation for creating this was abiliity to upload extensive debug data (e.g., data from an ADC) from a standalone application running in [FreeRTOS](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842141/FreeRTOS) on AMD [Xilinx Zynq](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) SoC (FreeRTOS uses the [lwIP](https://savannah.nongnu.org/projects/lwip/) stack).  
@@ -39,23 +40,13 @@ Data:
 
 The files [FileViaSocket.h](FileViaSocket.h) and [FileViaSocket.cpp](FileViaSocket.cpp) define the class [FileViaSocket](FileViaSocket.h#L80).
 
-Tested (and ready for compilation) on FreeRTOS on AMD Xilinx Zynq SoC (Vitis 2023.1 toolchain),
-Windows 11 (MinGW toolchain) and Ubuntu 22.04 (gcc toolchain).
+I tested the class FileViaSocket (and made sure it's ready for compilation) on FreeRTOS on AMD Xilinx Zynq SoC (Vitis 2023.1 toolchain), Windows 11 (MinGW toolchain), and Ubuntu 22.04 (gcc toolchain).
 
-```
-g++ -o DemoFileViaSocket DemoFileViaSocket.cpp FileViaSocket.cpp
-```
+FileViaSocket acts as a regular C++ ostream class but doesn't write any data locally. Everything is sent to the server via a socket connection, and the server (a Python script) writes all incoming data verbatim to a file.
 
-tbd tbd
+You can open the connection by using a parameterized constructor `FileViaSocket( const std::string &serverIP, unsigned short port )` or by using a method `void open( const std::string &serverIP, unsigned short port )`.
 
-```
-$ ./DemoFileViaSocket 192.168.44.44
-"Hello world" sent
-"12345678" sent
-Buffer sent. All done.
-```
 
-tbd
 
 ```c++
 const std::string    SERVER_ADDR( "192.168.44.44" ); //Specify proper server address here
@@ -139,6 +130,27 @@ options:
 ```
 
 ## Sample project files
+
+### Linux and Windows
+
+
+
+```
+g++ -o DemoFileViaSocket DemoFileViaSocket.cpp FileViaSocket.cpp
+```
+
+tbd tbd
+
+```
+$ ./DemoFileViaSocket 192.168.44.44
+"Hello world" sent
+"12345678" sent
+Buffer sent. All done.
+```
+
+tbd
+
+### FreeRTOS on AMD Xilinx Zynq
 
 enable lwIP in the BSP
 
