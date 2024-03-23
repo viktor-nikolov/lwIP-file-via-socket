@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 # "File via socket" for lwIP
 This repository provides a C++ ostream class (client) and a Python script (server) for writing a file on a remote system via an IP socket connection.  
-My primary motivation for creating this was to upload extensive debug data (e.g., data from an ADC) from a standalone application running in [FreeRTOS](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842141/FreeRTOS) on AMD [Xilinx Zynq](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) SoC (FreeRTOS uses the [lwIP](https://savannah.nongnu.org/projects/lwip/) stack).  
+My primary motivation for creating this was abiliity to upload extensive debug data (e.g., data from an ADC) from a standalone application running in [FreeRTOS](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842141/FreeRTOS) on AMD [Xilinx Zynq](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) SoC (FreeRTOS uses the [lwIP](https://savannah.nongnu.org/projects/lwip/) stack).  
 Nevertheless, the C++ class works also on Windows and Linux.
 
 For example, when you start the server like this
@@ -36,6 +36,8 @@ Data:
 ## How to use
 
 ### Client-side
+
+The files [FileViaSocket.h](FileViaSocket.h) and [FileViaSocket.cpp](FileViaSocket.cpp) define the class [FileViaSocket](FileViaSocket.h#L80).
 
 Tested (and ready for compilation) on FreeRTOS on AMD Xilinx Zynq SoC (Vitis 2023.1 toolchain),
 Windows 11 (MinGW toolchain) and Ubuntu 22.04 (gcc toolchain).
