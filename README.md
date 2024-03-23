@@ -63,7 +63,7 @@ const unsigned short SERVER_PORT{ 65432 }; //The server script file_via_socket.p
 void demo_FileViaSocket_thread(void *p)
 {
     try {
-        FileViaSocket f( ServerAddress, SERVER_PORT ); // Declare the object and open the connection
+        FileViaSocket f( SERVER_ADDR, SERVER_PORT ); // Declare the object and open the connection
         f << "Hello world!\n"; // We are using '\n' instead of std::endl in order to control
                                // what is written to the file on the remote server.
         f << std::flush;       // Flushing the buffer, "Hello world!\n" is sent in a TCP packet.
@@ -72,7 +72,7 @@ void demo_FileViaSocket_thread(void *p)
       // "It worked.\n" is sent in a TCP packet, the socket connection is closed,
       // a file is created on the server
     catch( const std::exception& e ) {
-        // Handle exception
+        // Handle the exception
     }
 
     /* We must give the server some time to close the connection on its end.
@@ -84,10 +84,10 @@ void demo_FileViaSocket_thread(void *p)
     try {
         f.open( SERVER_ADDR, SERVER_PORT ); // Open connection to the server
     } catch( const std::exception& e ) {
-        // Handle exception
+        // Handle the exception
     }
 
-    f << '1' << "23456" << 78; // We can write all kind of value types to an ostream
+    f << '1' << "23456" << 78; // We can write all kinds of data types to an ostream
     f.close(); // Close the connection, another file is created on the server
 
     vTaskDelay( pdMS_TO_TICKS( 50 ) ); // Wait 50 ms
@@ -95,7 +95,7 @@ void demo_FileViaSocket_thread(void *p)
     try {
         f.open( SERVER_ADDR, SERVER_PORT ); // Open a new connection on the same object
     } catch( const std::exception& e ) {
-        // Handle exception
+        // Handle the exception
     }
 
     // Prepare a buffer to be written to the server
