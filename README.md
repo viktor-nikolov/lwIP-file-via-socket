@@ -40,11 +40,15 @@ Data:
 
 The files [FileViaSocket.h](FileViaSocket.h) and [FileViaSocket.cpp](FileViaSocket.cpp) define the class [FileViaSocket](FileViaSocket.h#L80).
 
-I tested the class FileViaSocket (and made sure it's ready for compilation) on FreeRTOS on AMD Xilinx Zynq SoC (Vitis 2023.1 toolchain), Windows 11 (MinGW toolchain), and Ubuntu 22.04 (gcc toolchain).
+I tested the class FileViaSocket (and made sure it's ready for compilation) on FreeRTOS on AMD Xilinx Zynq SoC (Vitis 2023.1 toolchain), Windows 11 (MinGW toolchain in [CLion](https://www.jetbrains.com/clion/)), and Ubuntu 22.04 (gcc toolchain).
 
 FileViaSocket acts as a regular C++ ostream class but doesn't write any data locally. Everything is sent to the server via a socket connection, and the server (a Python script) writes all incoming data verbatim to a file.
 
-You can open the connection using the parameterized constructor `FileViaSocket( const std::string &serverIP, unsigned short port )` or by the method `void open( const std::string &serverIP, unsigned short port )`. Both may raise an exception if an error occurs.
+You can open the connection using the parameterized constructor  
+ `FileViaSocket( const std::string &serverIP, unsigned short port )`  
+or by the method  
+`void open( const std::string &serverIP, unsigned short port )`.   
+Both may raise an exception if an error occurs.
 
 Connection is closed by the destructor of the class FileViaSocket or by calling the method `void close()`. After calling `close`, you can call the `open` again.
 
