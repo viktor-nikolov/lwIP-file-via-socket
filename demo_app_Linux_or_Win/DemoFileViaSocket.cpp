@@ -64,10 +64,14 @@ int main( int argc, char* argv[] )
 
 	try {
 		FileViaSocket f( ServerAddress, SERVER_PORT ); // Declare the object and open the connection
-		f << "Hello world!\n"; // We are using '\n' instead of std::endl in order to control what is written
-		                       // to the file on the remote server.
-		f << std::flush;       // Flushing the buffer, "Hello world!\n" is sent in a TCP packet.
+		f << "Hello world!\n"; /* We are using '\n' on purpose instead of std::endl, because
+		                        * std::endl has a side effect of flushing the buffer, i.e.,
+		                        * "Hello world!\n" would be immediatelly sent in a TCP packet. */
+		f << "I'm here.\n";
+		f << std::flush;       /* We are explicitly flushing the buffer, "Hello world!\nI'm here.\n"
+		                        * is sent in a TCP packet. */
 		f << "It worked.\n";
+
 	} // Object f ceases to exist, destructor on 'f' is called, buffer is flushed,
 	  // "It worked.\n" is sent in a TCP packet, the socket connection is closed, a file is created on the server
 	catch( const std::exception& e ) {
