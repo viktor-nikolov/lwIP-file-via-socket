@@ -140,7 +140,7 @@ Run the script with the command `python3 file_via_socket.py [params]` or `python
 
 I tested the script on Ubuntu 22.04 and Windows 11.
 
-The default port the script listens for connections is 65432, and the default bind IP address is 0.0.0.0 (i.e., the script listens on all the configured network interfaces).
+The default port the script listens on for connections is 65432, and the default bind IP address is 0.0.0.0 (i.e., the script listens on all the configured network interfaces).
 
 #### Usage:
 
