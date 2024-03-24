@@ -65,6 +65,8 @@ There are three versions of the constant [SocketBuffer::SOCKET_BUFF_SIZE](FileVi
 
 On the other hand, if you want to flush the buffer on purpose in order to see data on the server, the manipulators `std::endl` and `std::flush` will work for you.
 
+#### Demo code
+
 The following code demonstrates various aspects of using the class FileViaSocket (it's a simplified version of the code of [the demo app](demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp) for FreeRTOS on Xilinx Zynq).
 
 ```c++
