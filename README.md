@@ -52,10 +52,12 @@ Both may raise an exception if an error occurs.
 
 Connection is closed by the destructor of the class FileViaSocket or by calling the method `void close()`. After calling `close`, you can call the `open` again.
 
-You use FileViaSocket as any other ostream. Typically you will use `operator<<` or the method  
+You use FileViaSocket as any other ostream. Typically, you will use `operator<<` or the method  
 `std::ostream::write(const char* s, streamsize n)`.
 
-Please note that FileViaSocket has internal data buffer of the size equal to amout of data possible to be sent in a single TCP packet.
+Please note that FileViaSocket has an internal data buffer of the size of the amount of data that can be sent in a single TCP packet.  
+I tested using Wireshark that on FreeRTOS on Xilinx Zynq (using lwIP 2.1.3) 1446 bytes of data are sent in one TCP packet. On Ubuntu 22.04 it's 1448 bytes, and on Windows 11 it's 1460 bytes of data.  
+There are three versions of the constant `[SocketBuffer::SOCKET_BUFF_SIZE](FileViaSocket.h#L45)` for each of the three platforms.
 
 **std::endl std::flush**
 
