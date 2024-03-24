@@ -61,7 +61,7 @@ There are three versions of the constant [SocketBuffer::SOCKET_BUFF_SIZE](FileVi
 
 > [!IMPORTANT]
 >
-> I discourage you from using ostream manipulator `std::endl` to mark end of line of text. This is because `std::endl` has a side effect of flushing the data buffer, i.e., sending a TCP IP packet. It is not efficient to send a TCP IP packet for each line. It's better to have the data buffer filled.
+> I discourage you from using ostream manipulator `std::endl` to mark the end of a line of text. This is because `std::endl` has a side effect of flushing the data buffer, i.e., sending a TCP IP packet. It is not efficient to send a TCP IP packet for each line. It's better to have the data buffer filled with 1446 bytes of data first.
 
 On the other hand, if you want to flush the buffer on purpose in order to see data on the server, the manipulators `std::endl` and `std::flush` will work for you.
 
