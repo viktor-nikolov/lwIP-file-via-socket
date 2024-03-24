@@ -61,11 +61,11 @@ There are three versions of the constant [SocketBuffer::SOCKET_BUFF_SIZE](FileVi
 
 > [!IMPORTANT]
 >
-> I discourage you from using ostream manipulator `std::endl` to mark the end of a line of text. This is because `std::endl` has a side effect of flushing the data buffer, i.e., sending a TCP IP packet. It is not efficient to send a TCP IP packet for each line. It's better to have the data buffer filled with 1446 bytes of data first.
+> I discourage you from using ostream manipulator `std::endl` to mark the end of a line of text. This is because `std::endl` has a side effect of flushing the data buffer, i.e., sending a TCP IP packet. It is not efficient to send a TCP IP packet for each line. It's better to fill the data buffer with 1446 bytes of data first.
 
 On the other hand, if you want to flush the buffer on purpose in order to see data on the server, the manipulators `std::endl` and `std::flush` will work for you.
 
-
+The following code demonstrates various aspects of using the class FileViaSocket (it's a simplified version of the code of [the demo app](demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp) for FreeRTOS on Xilinx Zynq).
 
 ```c++
 const std::string    SERVER_ADDR( "192.168.44.44" ); //Specify proper server address here
@@ -151,7 +151,7 @@ options:
   --bind_port BIND_PORT  local port to listen to connection on; values: 1024..65535; defaults to 65432
 ```
 
-## Sample project files
+## Demo application
 
 ### Linux and Windows
 
