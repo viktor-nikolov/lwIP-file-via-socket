@@ -52,9 +52,12 @@ Both may raise an exception if an error occurs.
 
 Connection is closed by the destructor of the class FileViaSocket or by calling the method `void close()`. After calling `close`, you can call the `open` again.
 
+You use FileViaSocket as any other ostream. Typically you will use `operator<<` or the method  
+`std::ostream::write(const char* s, streamsize n)`.
 
+Please note that FileViaSocket has internal data buffer of the size equal to amout of data possible to be sent in a single TCP packet.
 
-dddd
+**std::endl std::flush**
 
 ```c++
 const std::string    SERVER_ADDR( "192.168.44.44" ); //Specify proper server address here
@@ -65,10 +68,13 @@ void demo_FileViaSocket_thread(void *p)
 {
     try {
         FileViaSocket f( SERVER_ADDR, SERVER_PORT ); // Declare the object and open the connection
-        f << "Hello world!\n"; // We are using '\n' instead of std::endl in order to control
-                               // what is written to the file on the remote server.
-        f << std::flush;       // Flushing the buffer, "Hello world!\n" is sent in a TCP packet.
-        f << "It worked.\n";
+			f << "Hello world!\n"; /* We are using '\n' on purpose instead of std::endl, because
+			                        * std::endl has a side effect of flushing the buffer, i.e.,
+			                        * "Hello world!\n" would be sent in a TCP packet. */
+			f << "I'm here.\n";
+		    f << std::flush;       /* We are explicitly flushing the buffer, "Hello world!\nI'm here.\n"
+		                            * is sent in a TCP packet. */
+			f << "It worked.\n";
     } // Object f ceases to exist, destructor on 'f' is called, buffer is flushed,
       // "It worked.\n" is sent in a TCP packet, the socket connection is closed,
       // a file is created on the server
