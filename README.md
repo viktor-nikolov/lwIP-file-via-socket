@@ -136,7 +136,7 @@ It writes all data sent by the class FileViaSocket verbatim to a file. Each sess
 The standard name of the file the server creates looks like this: via_socket_*240324_203824.6369*.txt  
 Part of the name in italics is the date and time stamp.
 
-Run the script with the command `python3 file_via_socket [params]` or `python file_via_socket [params]`, depending on your Python installation.
+Run the script with the command `python3 file_via_socket.py [params]` or `python file_via_socket.py [params]`, depending on your Python installation.
 
 I tested the script on Ubuntu 22.04 and Windows 11.
 
