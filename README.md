@@ -2,7 +2,7 @@
 
 # "File via socket" for lwIP
 This repository provides a C++ ostream class (client) and a Python script (server) for writing a file on a remote system via an IP socket connection.  
-My primary motivation for creating this was abiliity to upload extensive debug data (e.g., data from an ADC) from a standalone application running in [FreeRTOS](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842141/FreeRTOS) on AMD [Xilinx Zynq](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) SoC (FreeRTOS uses the [lwIP](https://savannah.nongnu.org/projects/lwip/) stack).  
+My primary motivation for creating this was the abiliity to upload extensive debug data (e.g., data from an ADC) from a standalone application running in [FreeRTOS](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842141/FreeRTOS) on AMD [Xilinx Zynq](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) SoC (FreeRTOS uses the [lwIP](https://savannah.nongnu.org/projects/lwip/) stack).  
 Nevertheless, the C++ class works also on Windows and Linux.
 
 For example, when you start the server like this
@@ -23,7 +23,7 @@ and use the following code in the application
 } // Destructor on 'f' is called, the connection is closed
 ```
 
-then the file `~/test_data/via_socket_240318_213421.5840.txt` is created on the server with the content
+then the file `~/test_data/via_socket_240318_213421.5840.txt` (he file name contains the time stamp for the connection) is created on the server with the content
 
 ```
 Data:
@@ -31,8 +31,6 @@ Data:
 2
 3
 ```
-
-(The file name contains the time stamp for the connection.)
 
 ## How to use
 
@@ -55,15 +53,15 @@ Connection is closed by the destructor of the class FileViaSocket or by calling 
 You use FileViaSocket as any other ostream. Typically, you will use `operator<<` or the method  
 `std::ostream::write(const char* s, streamsize n)`.
 
-Please note that FileViaSocket has an internal data buffer of the size of the amount of data that can be sent in a single TCP packet.  
-I tested using Wireshark that on FreeRTOS on Xilinx Zynq (using lwIP 2.1.3) 1446 bytes of data are sent in one TCP packet. On Ubuntu 22.04 it's 1448 bytes, and on Windows 11 it's 1460 bytes of data.  
+Please note that **the FileViaSocket has an internal data buffer** of the size of the amount of data that can be sent in a single TCP packet.  
+I tested using [Wireshark](https://www.wireshark.org/) that on FreeRTOS on Xilinx Zynq (using lwIP 2.1.3) 1446 bytes of data are sent in one TCP packet. On Ubuntu 22.04 it's 1448 bytes, and on Windows 11 it's 1460 bytes of data.  
 There are three versions of the constant [SocketBuffer::SOCKET_BUFF_SIZE](FileViaSocket.h#L45) for each of the three platforms.
 
 > [!IMPORTANT]
 >
 > I discourage you from using ostream manipulator `std::endl` to mark the end of a line of text. This is because `std::endl` has a side effect of flushing the data buffer, i.e., sending a TCP IP packet. It is not efficient to send a TCP IP packet for each line. It's better to fill the data buffer with 1446 bytes of data first.
 
-On the other hand, if you want to flush the buffer on purpose in order to see data on the server, the manipulators `std::endl` and `std::flush` will work for you.
+On the other hand, if you want to flush the buffer on purpose in order to see data on the server, so it appears in the file on the server, the manipulators `std::endl` and `std::flush` will work for you.
 
 #### Demo code
 
@@ -136,7 +134,7 @@ It writes all data sent by the class FileViaSocket verbatim to a file. Each sess
 The standard name of the file the server creates looks like this: via_socket_*240324_203824.6369*.txt  
 Part of the name in italics is the date and time stamp.
 
-Run the script with the command `python3 file_via_socket.py [params]` or `python file_via_socket.py [params]`, depending on your Python installation.
+Depending on your Python installation, run the script with the command `python3 file_via_socket.py [params]` or `python file_via_socket.py [params]`.
 
 I tested the script on Ubuntu 22.04 and Windows 11.
 
