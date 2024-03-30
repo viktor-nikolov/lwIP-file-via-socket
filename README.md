@@ -187,6 +187,8 @@ The HW design was made for the [Digilent Zybo Z7-20](https://digilent.com/shop/z
 
 tbd
 
+<img title="" src="pictures/Vivado_diagram.png" alt="" width="400">
+
 #### SW app and Vitis setup
 
 enable lwIP in the BSP
