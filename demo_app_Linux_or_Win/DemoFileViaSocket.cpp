@@ -102,9 +102,9 @@ int main( int argc, char* argv[] )
 	try {
 		f.open( ServerAddress, SERVER_PORT ); // Open a new connection on the same object
 	} catch( const std::exception& e ) {
-        std::cerr << "Error on opening the socket: " << std::endl << e.what() << std::endl;
-        return 1;
-    }	
+		std::cerr << "Error on opening the socket: " << std::endl << e.what() << std::endl;
+		return 1;
+	}	
 
 	// Prepare a buffer to be written to the server
 	const unsigned BUFF_SIZE{ 26*1000 };   /* Size of the buffer sent by one call of write() */

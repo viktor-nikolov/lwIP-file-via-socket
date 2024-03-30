@@ -75,9 +75,9 @@ int main( int argc, char* argv[] )
 	} // Object f ceases to exist, destructor on 'f' is called, buffer is flushed,
 	  // "It worked.\n" is sent in a TCP packet, the socket connection is closed, a file is created on the server
 	catch( const std::exception& e ) {
-        std::cerr << "Error on opening the socket: " << std::endl << e.what() << std::endl;
-        return 1;
-    }
+		std::cerr << "Error on opening the socket: " << std::endl << e.what() << std::endl;
+		return 1;
+	}
 	std::cout << "\"Hello world\" sent" << std::endl;
 
 	/* We must give the server some time to close the connection on its end.
@@ -89,9 +89,9 @@ int main( int argc, char* argv[] )
 	try {
 		f.open( ServerAddress, SERVER_PORT ); // Open connection to the server
 	} catch( const std::exception& e ) {
-        std::cerr << "Error on opening the socket: " << std::endl << e.what() << std::endl;
-        return 1;
-    }	
+		std::cerr << "Error on opening the socket: " << std::endl << e.what() << std::endl;
+		return 1;
+	}	
 
 	f << '1' << "23456" << 78; // We can write all kinds of data types to an ostream
 	f.close(); // Close the connection, another file is created on the server
