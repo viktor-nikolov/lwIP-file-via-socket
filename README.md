@@ -157,15 +157,18 @@ options:
 
 ## Demo application
 
-### Linux and Windows
+### Demo on Linux and Windows
 
-
+The file [demo_app_Linux_or_Win/DemoFileViaSocket.cpp](demo_app_Linux_or_Win/DemoFileViaSocket.cpp) contains a demo application showcasing the use of the class FileViaSocket.  
+On Linux, you can easily compile it with the command:
 
 ```
 g++ -o DemoFileViaSocket DemoFileViaSocket.cpp FileViaSocket.cpp
 ```
 
-tbd tbd
+The executable takes the server's IP address as the command line parameter. It connects to the server's default port 65432; it can be changed by modifying the value of the constant `SERVER_PORT`.
+
+The app creates three test files on the server. The app's output looks as follows: 
 
 ```
 $ ./DemoFileViaSocket 192.168.44.44
@@ -174,9 +177,17 @@ $ ./DemoFileViaSocket 192.168.44.44
 Buffer sent. All done.
 ```
 
+### Demo on FreeRTOS on AMD Xilinx Zynq
+
+The file [demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp](demo_app_Linux_or_Win/DemoFileViaSocket.cpp) contains a demo application for FreeRTOS on Xilinx Zynq Soc.  
+The folder [project_files](demo_app_Linux_or_Win/project_files) contains the HW design made in Vivado 2023.1 and a SW app workspace for Vitis 2023.1.   
+The HW design was made for the [Digilent Zybo Z7-20](https://digilent.com/shop/zybo-z7-zynq-7000-arm-fpga-soc-development-board/) board; nevertheless, any other Zynq board can be set in the design.
+
+#### HW design
+
 tbd
 
-### FreeRTOS on AMD Xilinx Zynq
+#### SW app and Vitis setup
 
 enable lwIP in the BSP
 
