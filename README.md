@@ -180,7 +180,7 @@ Buffer sent. All done.
 ### Demo on FreeRTOS on AMD Xilinx Zynq
 
 The file [demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp](demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp) contains a demo application for FreeRTOS on Xilinx Zynq Soc.  
-The folder [project_files](demo_app_Linux_or_Win/project_files) contains the HW design made in Vivado 2023.1 and a SW app workspace for Vitis 2023.1.   
+The folder [project_files](demo_app_FreeRTOS_on_Zynq/project_files) contains the HW design made in Vivado 2023.1 and a SW app workspace for Vitis 2023.1.   
 The HW design was made for the [Digilent Zybo Z7-20](https://digilent.com/shop/zybo-z7-zynq-7000-arm-fpga-soc-development-board/) board; nevertheless, any other Zynq board can be set in the design.
 
 #### HW design
