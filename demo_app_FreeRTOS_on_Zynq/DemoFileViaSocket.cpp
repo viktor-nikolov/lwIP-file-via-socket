@@ -70,7 +70,7 @@ static void print_ip(const char *msg, ip_addr_t *ip)
 {
 	xil_printf(msg);
 	xil_printf("%d.%d.%d.%d\n\r", ip4_addr1(ip), ip4_addr2(ip),
-				ip4_addr3(ip), ip4_addr4(ip));
+	           ip4_addr3(ip), ip4_addr4(ip));
 }
 
 static void print_ip_settings(ip_addr_t *ip, ip_addr_t *mask, ip_addr_t *gw)
@@ -173,12 +173,12 @@ void demo_FileViaSocket_thread(void *p)
 			xil_printf( err.c_str() );
 			xil_printf( "TERMINATED\r\n" );
 			vTaskDelete(NULL); // We end this thread since the provided server IP address is wrong
-	    }
+		}
 		catch( const std::exception& e ) {
 			std::string err( "Error on opening the socket: " + std::string(e.what()) + "\r\n" );
 			xil_printf( err.c_str() );
 			vTaskDelay( pdMS_TO_TICKS( 3000 ) ); // Wait 3 sec, perhaps the problem disappears on next try
-	    }
+		}
 	} while( ! WasOK );
 
 	xil_printf( "\"Hello world\" sent\r\n" );
@@ -196,7 +196,7 @@ void demo_FileViaSocket_thread(void *p)
 		xil_printf( err.c_str() );
 		xil_printf( "TERMINATED\r\n" );
 		vTaskDelete(NULL); // We end this thread
-    }
+	}
 
 	f << '1' << "23456" << 78; // We can write all kinds of data types to an ostream
 	f.close(); // Close the connection, another file is created on the server
@@ -212,7 +212,7 @@ void demo_FileViaSocket_thread(void *p)
 		xil_printf( err.c_str() );
 		xil_printf( "TERMINATED\r\n" );
 		vTaskDelete(NULL); // We end this thread
-    }
+	}
 
 	// Prepare a buffer to be written to the server
 	const unsigned BUFF_SIZE{ 26*1000 }; /* Size of a buffer sent by one call of write().
