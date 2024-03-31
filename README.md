@@ -181,15 +181,19 @@ Buffer sent. All done.
 
 The file [demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp](demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp) contains a demo application for FreeRTOS on Xilinx Zynq Soc.  
 The folder [project_files](demo_app_FreeRTOS_on_Zynq/project_files) contains the HW design made in Vivado 2023.1 and a SW app workspace for Vitis 2023.1.   
-The HW design was made for the [Digilent Zybo Z7-20](https://digilent.com/shop/zybo-z7-zynq-7000-arm-fpga-soc-development-board/) board; nevertheless, any other Zynq board can be set in the design.
+The HW design was made for the [Digilent Zybo Z7-20](https://digilent.com/shop/zybo-z7-zynq-7000-arm-fpga-soc-development-board/) board; nevertheless, any other Zynq board with Ethernet can be used.
 
 #### HW design
 
-tbd
+The HW design is the simplest possible Zynq design. We need just the Zynq Processing System.
 
 <img title="" src="pictures/Vivado_diagram.png" alt="" width="400">
 
 #### SW app and Vitis setup
+
+The sample [Vitis workspace](demo_app_FreeRTOS_on_Zynq/project_files/DemoFileViaSocket_sw) provides an environment for building the demo app source file  [DemoFileViaSocket.cpp](demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp) for FreeRTOS.
+
+
 
 enable lwIP in the BSP
 
