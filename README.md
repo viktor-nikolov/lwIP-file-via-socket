@@ -193,20 +193,17 @@ The HW design is the simplest possible Zynq design. We need just the Zynq Proces
 
 The sample [Vitis workspace](demo_app_FreeRTOS_on_Zynq/project_files/DemoFileViaSocket_sw) provides an environment for building the demo app source file  [DemoFileViaSocket.cpp](demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp) for FreeRTOS.
 
+Let me provide a few notes on Board Support Package (BSP) settings needed for successfull compilation of the demo app with lwIP.
 
-
-enable lwIP in the BSP
+First, you need to enable the lwIP in the BSP:
 
 <img title="" src="pictures/enable_lwIP.png" alt="" width="500">
 
-tbd
+The following settings are then needed in the lwIP BSP configuration:
 
-api_mode "SOCKET API" because it is stand alone app
+- Set api_mode to "SOCKET API" because this api_mode is required for a stand-alone application.
+- Set dhcp_options/lwip_dhcp to true because the app code is using DHCP to obtain an IP address.
 
-dhcp_options/lwip_dhcp true
-
-temac_adapter_options/phy_link_speed "1000 Mbps"
+- (optional) On my network, the Zybo Z7 wasn't able to negotiate link speed. Therefore, I manually set temac_adapter_options/phy_link_speed to "1000 Mbps" to resolve the issue. This may be just a problem related to my particular network router. You may try to leave phy_link_speed on the default autodetect setting.
 
 <img title="" src="pictures/lwIP_settings.png" alt="" width="650">
-
-tbd
