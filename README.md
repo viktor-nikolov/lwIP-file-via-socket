@@ -166,7 +166,7 @@ On Linux, you can easily compile it with the command:
 g++ -o DemoFileViaSocket DemoFileViaSocket.cpp FileViaSocket.cpp
 ```
 
-The executable takes the server's IP address as the command line parameter. It connects to the server's default port 65432; it can be changed by modifying the value of the constant `SERVER_PORT`.
+The executable takes the server's IP address as the command line parameter. It connects to the server's default port 65432 (the port can be changed by modifying the value of the constant `SERVER_PORT` in the code).
 
 The app creates three test files on the server. The app's output looks as follows: 
 
@@ -191,7 +191,7 @@ The HW design is the simplest possible Zynq design. We need just the Zynq Proces
 
 #### SW app and Vitis setup
 
-The sample [Vitis workspace](demo_app_FreeRTOS_on_Zynq/project_files/DemoFileViaSocket_sw) provides an environment for building the demo app source file  [DemoFileViaSocket.cpp](demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp) for FreeRTOS.
+The sample [Vitis workspace](demo_app_FreeRTOS_on_Zynq/project_files/DemoFileViaSocket_sw) provides the environment for building the demo app source file  [DemoFileViaSocket.cpp](demo_app_FreeRTOS_on_Zynq/DemoFileViaSocket.cpp) for FreeRTOS.
 
 Let me provide a few notes on Board Support Package (BSP) settings needed for successfull compilation of the demo app with lwIP.
 
