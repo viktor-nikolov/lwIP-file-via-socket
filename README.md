@@ -2,7 +2,7 @@
 
 # "File via socket" for lwIP
 This repository provides a C++ ostream class (client) and a Python script (server) for writing a file on a remote system via an IP socket connection.  
-My primary motivation for creating this was the abiliity to upload extensive debug data (e.g., data from an ADC) from a standalone application running in [FreeRTOS](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842141/FreeRTOS) on AMD [Xilinx Zynq](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) SoC (FreeRTOS uses the [lwIP](https://savannah.nongnu.org/projects/lwip/) stack).  
+My primary motivation for creating this was the abiliity to upload extensive debug data (e.g., data from an ADC) from an application running in [FreeRTOS](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842141/FreeRTOS) on AMD [Xilinx Zynq](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) SoC (FreeRTOS uses the [lwIP](https://savannah.nongnu.org/projects/lwip/) stack).  
 Nevertheless, the C++ class works also on Windows and Linux.
 
 For example, when you start the server like this
@@ -23,7 +23,7 @@ and use the following code in the application
 } // Destructor on 'f' is called, the connection is closed
 ```
 
-then the file `~/test_data/via_socket_240318_213421.5840.txt` (he file name contains the time stamp for the connection) is created on the server with the content
+then the file `~/test_data/via_socket_240318_213421.5840.txt` (the file name contains the time stamp for the connection) is created on the server with the content
 
 ```
 Data:
