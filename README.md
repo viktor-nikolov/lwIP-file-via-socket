@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 
 # "File via socket" for lwIP
-This repository provides a C++ ostream class (client) and a Python script (server) for writing a file on a remote system via an IP socket connection.  
+This repository provides a C++ [ostream](https://en.cppreference.com/w/cpp/io/basic_ostream) class (client) and a Python script (server) for writing a file on a remote system via an IP socket connection.  
 My primary motivation for creating this was the abiliity to upload extensive debug data (e.g., data from an ADC) from an application running in [FreeRTOS](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842141/FreeRTOS) on AMD [Xilinx Zynq](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html) SoC (FreeRTOS uses the [lwIP](https://savannah.nongnu.org/projects/lwip/) stack).  
 Nevertheless, the C++ class works also on Windows and Linux.
 
@@ -40,7 +40,7 @@ The files [FileViaSocket.h](FileViaSocket.h) and [FileViaSocket.cpp](FileViaSock
 
 I tested the class FileViaSocket (and made sure it's ready for compilation) on FreeRTOS on AMD Xilinx Zynq SoC (Vitis 2023.1 toolchain), Windows 11 (MinGW toolchain in [CLion](https://www.jetbrains.com/clion/)), and Ubuntu 22.04 (gcc toolchain).
 
-FileViaSocket acts as a regular C++ ostream class but doesn't write any data locally. Everything is sent to the server via a socket connection, and the server (a Python script) writes all incoming data verbatim to a file.
+FileViaSocket acts as a regular C++ [ostream](https://en.cppreference.com/w/cpp/io/basic_ostream) class but doesn't write any data locally. Everything is sent to the server via a socket connection, and the server (a Python script) writes all incoming data verbatim to a file.
 
 You can open the connection using the parameterized constructor  
  `FileViaSocket( const std::string &serverIP, unsigned short port )`  
